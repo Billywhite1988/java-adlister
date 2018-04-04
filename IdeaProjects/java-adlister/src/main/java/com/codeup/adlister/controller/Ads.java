@@ -1,6 +1,6 @@
-package com.codeup.adlister.dao;
+package com.codeup.adlister.controller;
 
-import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.controller.Ad;
 
 import java.util.List;
 

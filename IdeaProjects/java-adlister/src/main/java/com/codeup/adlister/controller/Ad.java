@@ -1,4 +1,4 @@
-package com.codeup.adlister.models;
+package com.codeup.adlister.controller;
 
 
 public class Ad {
