@@ -1,11 +1,12 @@
 package com.codeup.adlister.dao;
 
 public class DaoFactory {
-    public static Ads getCategoryDao() {
-        return getCategoryDao();
-    }
+    private static Ads adsDao;
 
     public static Ads getAdsDao() {
-        return getAdsDao();
+        if (adsDao == null) {
+            adsDao = (Ads) new ListAdsDao();
+        }
+        return adsDao;
     }
 }

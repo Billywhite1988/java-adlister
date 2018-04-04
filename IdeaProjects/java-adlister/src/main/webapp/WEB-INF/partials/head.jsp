@@ -1,17 +1,2 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<style>
-    .parallax {
-        background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
-        min-height: 500px;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .login {
-        height: 500px;
-        background: lightgrey;
-        font-size:36px;
-    }
-</style>
+<title>${param.title}</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
