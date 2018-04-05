@@ -1,4 +1,4 @@
-package com.codeup.adlister.controller;
+package com.codeup.adlister.controller.dao;
 
 public class DaoFactory {
     public static Ads getCategoryDao() {

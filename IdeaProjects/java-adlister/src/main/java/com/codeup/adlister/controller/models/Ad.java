@@ -1,4 +1,4 @@
-package com.codeup.adlister.controller;
+package com.codeup.adlister.controller.models;
 
 
 public class Ad {
@@ -10,7 +10,7 @@ public class Ad {
     private String date;
     private String location;
 
-    public Ad(long id, long userId,long catID, String title, String description, String location, String date) {
+    public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
         this.title = title;
