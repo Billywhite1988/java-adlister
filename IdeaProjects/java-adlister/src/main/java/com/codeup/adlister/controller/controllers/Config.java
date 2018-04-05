@@ -1,7 +1,7 @@
-package com.codeup.adlister.controller;
+package com.codeup.adlister.controller.controllers;
 
 public class Config {
-    private String url = "jdbc:mysql://localhost/adlist_db?serverTimezone=UTC&useSSL=false";
+    private String url = "jdbc:mysql://localhost/adlister_db?serverTimezone=UTC&useSSL=false";
     private String username = "adlist";
     private String password = "adlistP@ass123";
 
