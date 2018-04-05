@@ -1,17 +1,55 @@
 package com.codeup.adlister.controller.dao;
 
 import com.codeup.adlister.controller.models.Ad;
+import com.sun.deploy.config.Config;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+import java.util.logging.Logger;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
-    public MySQLAdsDao(config config) {
+    public MySQLAdsDao(Config config) {
         try {
-            DriverManager.registerDriver(new Driver());
+            DriverManager.registerDriver(new Driver() {
+                @Override
+                public Connection connect(String url, Properties info) throws SQLException {
+                    return null;
+                }
+
+                @Override
+                public boolean acceptsURL(String url) throws SQLException {
+                    return false;
+                }
+
+                @Override
+                public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
+                    return new DriverPropertyInfo[0];
+                }
+
+                @Override
+                public int getMajorVersion() {
+                    return 0;
+                }
+
+                @Override
+                public int getMinorVersion() {
+                    return 0;
+                }
+
+                @Override
+                public boolean jdbcCompliant() {
+                    return false;
+                }
+
+                @Override
+                public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+                    return null;
+                }
+            });
             connection = DriverManager.getConnection(
                     config.getUrl(),
                     config.getUser(),
@@ -24,11 +62,10 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> all() {
-        PreparedStatement stmt = null;
+        Statement stmt = null;
         try {
-            String sql = "SELECT * FROM ads";
-            stmt = connection.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
